@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عن العائلة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:white;font-size:28px;'><text y='50%'>K</text></svg>") 16 0, auto;
+        }
+
+        body {
+            background-image: url('banner.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
+            pointer-events: none;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .back-button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #ffd700;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        .back-button i {
+            transition: transform 0.3s ease;
+        }
+
+        .back-button:hover i {
+            transform: translateX(-5px);
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 100px 0 40px 0;
+            perspective: 1000px;
+        }
+
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 25px;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transform-style: preserve-3d;
+        }
+
+        .nav-item:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            background: rgba(255, 215, 0, 0.2);
+            border-radius: 50%;
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .nav-item:hover:before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .nav-item:hover {
+            color: #ffd700;
+            transform: translateY(-5px) rotateX(10deg);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        .content-section {
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 800px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            color: white;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            color: #ffd700;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            transition: width 0.3s ease;
+        }
+
+        .content-section:hover .section-title:after {
+            width: 100px;
+        }
+
+        .section-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: justify;
+            transition: all 0.3s ease;
+        }
+
+        .content-section:hover .section-content {
+            transform: scale(1.01);
+            text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        الرجوع للصفحة الرئيسية
+    </a>
+
+    <nav class="nav-menu">
+        <a href="#about" class="nav-item">عن العائلة</a>
+        <a href="#values" class="nav-item">قيمنا</a>
+        <a href="#news" class="nav-item">أخبارنا</a>
+    </nav>
+
+    <div id="about" class="content-section">
+        <h2 class="section-title">عن العائلة</h2>
+        <p class="section-content">
+            نحن عائلة متحدة تجمعنا روابط قوية من المحبة والاحترام المتبادل. نسعى دائماً للتطور والنمو معاً، ونؤمن بأهمية التعاون والدعم المتبادل بين جميع أفراد العائلة. نفخر بتراثنا وتقاليدنا، ونعمل على نقلها للأجيال القادمة.
+        </p>
+    </div>
+
+    <div id="values" class="content-section">
+        <h2 class="section-title">قيمنا</h2>
+        <p class="section-content">
+            تقوم قيمنا على أساس الاحترام والصدق والأمانة. نؤمن بأهمية العمل الجاد والمثابرة في تحقيق الأهداف. نحرص على تعزيز روح التعاون والتكافل بين أفراد العائلة، ونسعى دائماً لمساعدة بعضنا البعض في السراء والضراء.
+        </p>
+    </div>
+
+    <div id="news" class="content-section">
+        <h2 class="section-title">أخبارنا</h2>
+        <p class="section-content">
+            نحرص على مشاركة أخبار وإنجازات أفراد العائلة، ونحتفل معاً بكل النجاحات والمناسبات السعيدة. نتابع باستمرار تطورات ونشاطات العائلة، ونوثق لحظاتنا المميزة لتبقى ذكرى جميلة نشاركها مع الأجيال القادمة.
+        </p>
+    </div>

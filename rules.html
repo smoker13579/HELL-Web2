@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>القوانين</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:white;font-size:28px;'><text y='50%'>K</text></svg>") 16 0, auto;
+        }
+
+        body {
+            background-image: url('rules.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .rules-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            width: 90%;
+            color: white;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-out;
+        }
+
+        .rules-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .back-button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #ffd700;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+        }
+
+        .rule-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            border-left: 3px solid #ffd700;
+        }
+
+        .rule-item:hover {
+            transform: translateX(-5px);
+            background-color: rgba(255, 215, 0, 0.1);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+        }
+
+        .rules-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: #ffd700;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+        }
+
+        .special-rule {
+            background-color: rgba(255, 215, 0, 0.15);
+            border-left: 3px solid #ff4500;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .special-rule:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        العودة
+    </a>
+    
+    <div class="rules-container">
+        <h1 class="rules-title">القوانين</h1>
+        
+        <div class="rules-section">
+            <h2 class="section-title">القوانين العامة</h2>
+            <div class="rule-item">R1 › يجب على جميع أفراد العائلة احترام بعضهم البعض في الأقوال والأفعال.</div>
+            <div class="rule-item">R2 › يجب أن يكون التواصل مفتوحًا وصريحًا بين أفراد العائلة لتجنب سوء الفهم.</div>
+            <div class="rule-item">R3 › كل فرد في العائلة يجب أن يساعد الآخرين ويساهم في جعل الحياة الأسرية أسهل.</div>
+            <div class="rule-item">R4 › يجب احترام خصوصية كل فرد في العائلة، سواء في المساحة الشخصية أو في وقت الراحة.</div>
+            <div class="rule-item">R5 › يجب على الجميع الالتزام بالمواعيد المهمة مثل الزيارات وإلخ.</div>
+            <div class="rule-item">R6 › عندما تنشأ مشكلات أو نزاعات، يجب التعامل معها بطريقة هادئة ومحترمة.</div>
+            <div class="rule-item">R7 › يجب أن يتبادل أفراد العائلة الدعم في الأوقات الصعبة.</div>
+            <div class="rule-item">R8 › يجب أن يكون الجميع صادقين مع بعضهم البعض ويفضل أن تكون هناك شفافية في التعامل.</div>
+            <div class="rule-item">R9 › يجب على أفراد العائلة المشاركة في الأنشطة والاحتفالات العائلية لتعزيز الروابط.</div>
+            <div class="rule-item">R10 › يجب أن يكون هناك اهتمام مشترك بتطوير الذات والنمو كعائلة.</div>
+            <div class="rule-item">R11 › على أفراد العائلة الحفاظ على القيم والمبادئ التي يلتزم بها الجميع.</div>
+            <div class="rule-item">R12 › يجب احترام الخصوصية وحفظ الأسرار الشخصية والعائلية.</div>
+            <div class="rule-item">R13 › يجب على الجميع أن يكونوا متسامحين وأن يسعى كل فرد للتفاهم مع الآخرين.</div>
+            <div class="rule-item">R14 › يجب أن يكون التشجيع والتحفيز جزءًا من العلاقات اليومية في العائلة.</div>
+            <div class="rule-item">R15 › يجب احترام وقت كل فرد وعدم تعريضه للإزعاج دون</div>
+        </div>
+
+        <div class="rules-section">
+            <h2 class="section-title">القوانين الخاصة</h2>
+            <div class="special-rule">FR.1 › حين دخولك لـ العائله مبلغ تامين 70 الف</div>
+            <div class="special-rule">FR.2 › فـ حال خروجك من العائله لأ يمكنك العوده الا بعد 3 ايام</div>
+            <div class="special-rule">FR.3 › يمنع خروجك من العائله ألا بعد مرور 3 ايام</div>
+        </div>
+    </div>
+</body>
+</html>

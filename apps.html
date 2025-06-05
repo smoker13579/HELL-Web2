@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التقديمات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:white;font-size:28px;'><text y='50%'>K</text></svg>") 16 0, auto;
+        }
+
+        body {
+            background-image: url('banner.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 20px 20px;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .back-button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #ffd700;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        .applications-title {
+            color: #ffd700;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .applications-container {
+            display: flex;
+            gap: 60px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1400px;
+        }
+
+        .application-card {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 25px;
+            padding: 50px;
+            width: 450px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .application-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        .application-icon {
+            font-size: 4rem;
+            color: #ffd700;
+            margin-bottom: 30px;
+        }
+
+        .application-title {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+
+        .application-description {
+            color: #cccccc;
+            margin-bottom: 35px;
+            line-height: 1.8;
+            font-size: 1.2rem;
+        }
+
+        .apply-button {
+            background-color: #ffd700;
+            color: black;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 1.2rem;
+        }
+
+        .apply-button:hover {
+            background-color: white;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .apply-button.disabled {
+            background-color: #666;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .applications-status {
+            color: #ff4444;
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        العودة
+    </a>
+
+    <h1 class="applications-title">التقديمات</h1>
+
+    <div class="applications-container">
+        <div class="application-card">
+            <i class="fas fa-users application-icon"></i>
+            <h2 class="application-title">التقديم للعائلة</h2>
+            <p class="application-description">
+                انضم إلى عائلتنا وكن جزءاً من مجتمعنا المميز. نرحب بجميع الأعضاء الجدد الذين يشاركوننا قيمنا ومبادئنا.
+            </p>
+            <a href="family-app.html" class="apply-button" id="familyAppButton">تقديم طلب</a>
+            <p class="applications-status" id="familyAppStatus"></p>
+        </div>
+
+        <div class="application-card">
+            <i class="fas fa-crown application-icon"></i>
+            <h2 class="application-title">التقديم للإدارة</h2>
+            <p class="application-description">
+                هل لديك خبرة في الإدارة وترغب في المساهمة في تطوير مجتمعنا؟ قدم طلبك للانضمام إلى فريق الإدارة.
+            </p>
+            <a href="staff-app.html" class="apply-button" id="staffAppButton">تقديم طلب</a>
+            <p class="applications-status" id="staffAppStatus"></p>
+        </div>
+    </div>
+
+    <script>
+        // تعريف متغيرات حالة التقديم
+        const applicationsStatus = {
+            family: true, // false = مغلق، true = مفتوح
+            staff: false   // false = مغلق، true = مفتوح
+        };
+
+        // الحصول على العناصر
+        const familyButton = document.getElementById('familyAppButton');
+        const staffButton = document.getElementById('staffAppButton');
+        const familyStatus = document.getElementById('familyAppStatus');
+        const staffStatus = document.getElementById('staffAppStatus');
+
+        // دالة تحديث حالة الأزرار
+        function updateApplicationStatus() {
+            if (!applicationsStatus.family) {
+                familyButton.classList.add('disabled');
+                familyButton.removeAttribute('href');
+                familyStatus.textContent = "التقديم مغلق حالياً";
+            }
+
+            if (!applicationsStatus.staff) {
+                staffButton.classList.add('disabled');
+                staffButton.removeAttribute('href');
+                staffStatus.textContent = "التقديم مغلق حالياً";
+            }
+        }
+
+        // منع الانتقال المباشر إلى صفحات التقديم
+        document.addEventListener('DOMContentLoaded', function() {
+            updateApplicationStatus();
+        });
+    </script>
+</body>
+</html>
